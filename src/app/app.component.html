@@ -1,0 +1,21 @@
+<div class="min-h-screen flex flex-col bg-slate-50 font-sans selection:bg-primary selection:text-white">
+
+  <app-navbar
+    *ngIf="showLayout"
+    [isLoggedIn]="isLoggedIn"
+    (onLogin)="openLoginModal()"
+    (onLogout)="cerrarSesion()">
+  </app-navbar>
+
+  <main class="flex-grow animate-fade-in">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer *ngIf="showLayout"></app-footer>
+
+  <app-login-modal
+    *ngIf="showLoginModal"
+    (close)="closeLoginModal()">
+  </app-login-modal>
+
+</div>

@@ -1,0 +1,69 @@
+<div class="min-h-screen bg-slate-50 font-sans pb-20">
+
+  <section class="hero bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 py-24 text-white shadow-inner relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.webp')]"></div>
+    <div class="hero-content text-center flex-col max-w-5xl mx-auto relative z-10 w-full px-4">
+      <div class="max-w-3xl animate-fade-in pb-16 md:pb-6 w-full">
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-6 uppercase leading-none break-words">Mantenimiento Biomédico</h1>
+        <div class="badge badge-info font-black px-6 py-4 shadow-xl uppercase tracking-[0.3em] text-xs">Soporte Técnico Especializado</div>
+        <p class="py-6 md:py-10 text-lg md:text-xl opacity-90 leading-relaxed font-medium px-2 md:px-0">
+          Garantizamos la precisión, seguridad y confiabilidad de su infraestructura médica mediante procesos técnicos rigurosos y normativas internacionales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-6 -mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-20">
+    <div class="card bg-white shadow-2xl border-t-8 border-blue-600 hover:-translate-y-2 transition-transform duration-300 rounded-[2rem]">
+      <div class="card-body p-10">
+        <div class="text-5xl mb-4">⚖️</div>
+        <h2 class="card-title text-slate-900 font-black uppercase tracking-tighter text-2xl">Calibración</h2>
+        <p class="text-sm text-slate-500 font-medium italic mt-2">Verificación de parámetros exactos para diagnósticos certeros.</p>
+      </div>
+    </div>
+    <div class="card bg-white shadow-2xl border-t-8 border-indigo-500 hover:-translate-y-2 transition-transform duration-300 rounded-[2rem]">
+      <div class="card-body p-10">
+        <div class="text-5xl mb-4">🛡️</div>
+        <h2 class="card-title text-slate-900 font-black uppercase tracking-tighter text-2xl">Prevención</h2>
+        <p class="text-sm text-slate-500 font-medium italic mt-2">Inspección técnica periódica para evitar interrupciones críticas.</p>
+      </div>
+    </div>
+    <div class="card bg-white shadow-2xl border-t-8 border-blue-800 hover:-translate-y-2 transition-transform duration-300 rounded-[2rem]">
+      <div class="card-body p-10">
+        <div class="text-5xl mb-4">🔧</div>
+        <h2 class="card-title text-slate-900 font-black uppercase tracking-tighter text-2xl">Reparación</h2>
+        <p class="text-sm text-slate-500 font-medium italic mt-2">Soluciones rápidas y efectivas para la continuidad operativa.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="max-w-7xl mx-auto mt-32 px-6">
+    <div class="flex items-center gap-6 mb-16">
+      <h2 class="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter">Portafolio de Servicios</h2>
+      <div class="h-2 bg-gradient-to-r from-blue-200 to-transparent flex-1 rounded-full"></div>
+    </div>
+
+    <div *ngIf="videos.length === 0" class="alert bg-white border border-blue-100 text-slate-600 shadow-xl rounded-3xl p-8">
+      <div class="flex items-center gap-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span class="font-bold italic text-lg">No se han cargado evidencias técnicas en esta categoría.</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div *ngFor="let video of videos" class="group card bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-100 overflow-hidden rounded-[3rem]">
+        <figure class="aspect-video relative bg-slate-950">
+          <iframe [src]="video.sanitizedUrl" class="w-full h-full border-none opacity-80 group-hover:opacity-100 transition-opacity duration-700" allowfullscreen></iframe>
+        </figure>
+        <div class="card-body p-10">
+          <div class="flex flex-col gap-2">
+            <div class="badge badge-primary font-black text-[10px] uppercase tracking-[0.2em] px-4 py-3">Serie Mantenimiento</div>
+            <h3 class="card-title text-slate-900 font-black text-3xl uppercase tracking-tighter leading-tight mt-2">{{ video.title }}</h3>
+          </div>
+          <p *ngIf="video.description" class="mt-6 text-slate-600 font-medium leading-relaxed italic border-l-4 border-blue-100 pl-4">{{ video.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
